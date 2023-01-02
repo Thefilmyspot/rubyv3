@@ -147,7 +147,7 @@
 <details><summary> Deploy To Okteto </summary>
 <br>
 <p>
-<a href="https://cloud.okteto.com/deploy?repository=https://github.com/abhinand2608/thefilmyspotbot">
+<a href="https://cloud.okteto.com/deploy?repository=https://github.com/Thefilmyspot/rubyv3">
   <img src="https://okteto.com/develop-okteto.svg" alt="Deploy to Okteto">
 </a>
 </p>
