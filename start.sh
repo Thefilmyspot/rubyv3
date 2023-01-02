@@ -1,12 +1,12 @@
 if [ -z $UPSTREAM_REPO ]
 then
   echo "Cloning main Repository"
-  git clone https://github.com/abhinand2608/thefilmyspotbot.git /thefilmyspotbot
+  git clone https://github.com/Thefilmyspot/rubyv3.git /thefilmyspotruby
 else
   echo "Cloning Custom Repo from $UPSTREAM_REPO "
-  git clone $UPSTREAM_REPO /thefilmyspotbot
+  git clone $UPSTREAM_REPO /thefilmyspotruby
 fi
-cd /thefilmyspotbot
+cd /thefilmyspotruby
 pip3 install -U -r requirements.txt
-echo "Starting ThefilmyspotBot ✅...."
+echo "Starting ThefilmyspotRuby ✅...."
 python3 bot.py
