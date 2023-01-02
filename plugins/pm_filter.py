@@ -857,10 +857,10 @@ async def cb_handler(client: Client, query: CallbackQuery):
         else:
             await query.answer("Yᴏᴜ ᴅᴏɴ'ᴛ ʜᴀᴠᴇ THE ʀɪɢᴛs ᴛᴏ ᴅᴏ ᴛʜɪs !", show_alert=True)
  
-    elif query.data == "apk":
-        k = await client.send_message(chat_id=query.message.chat.id, text="<b>Deleting Apk... Please wait...</b>")
+    elif query.data == "hdcam":
+        k = await client.send_message(chat_id=query.message.chat.id, text="<b>Deleting hdcam... Please wait...</b>")
         files, next_offset, total = await get_bad_files(
-                                                  'apk',
+                                                  'hdcam',
                                                   offset=0)
         deleted = 0
         for file in files:
@@ -869,10 +869,10 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 '_id': file_ids,
             })
             if result.deleted_count:
-                logger.info('apk File Found ! Successfully deleted from database.')
+                logger.info('hdcam File Found ! Successfully deleted from database.')
             deleted+=1
         deleted = str(deleted)
-        await k.edit_text(text=f"<b>Successfully deleted {deleted} apk files.</b>")
+        await k.edit_text(text=f"<b>Successfully deleted {deleted} hdcam files.</b>")
 
     elif query.data == "trailer":
         k = await client.send_message(chat_id=query.message.chat.id, text="<b>Deleting trailer... Please wait...</b>")
@@ -890,6 +890,40 @@ async def cb_handler(client: Client, query: CallbackQuery):
             deleted+=1
         deleted = str(deleted)
         await k.edit_text(text=f"<b>Successfully deleted {deleted} trailer files.</b>")
+
+    elif query.data == "predvdrip":
+        k = await client.send_message(chat_id=query.message.chat.id, text="<b>Deleting predvdrip... Please wait...</b>")
+        files, next_offset, total = await get_bad_files(
+                                                  'predvdrip',
+                                                  offset=0)
+        deleted = 0
+        for file in files:
+            file_ids = file.file_id
+            result = await Media.collection.delete_one({
+                '_id': file_ids,
+            })
+            if result.deleted_count:
+                logger.info('predvdrip File Found ! Successfully deleted from database.')
+            deleted+=1
+        deleted = str(deleted)
+        await k.edit_text(text=f"<b>Successfully deleted {deleted} predvdrip files.</b>")
+
+    elif query.data == "sample":
+        k = await client.send_message(chat_id=query.message.chat.id, text="<b>Deleting sample... Please wait...</b>")
+        files, next_offset, total = await get_bad_files(
+                                                  'sample',
+                                                  offset=0)
+        deleted = 0
+        for file in files:
+            file_ids = file.file_id
+            result = await Media.collection.delete_one({
+                '_id': file_ids,
+            })
+            if result.deleted_count:
+                logger.info('Sample File Found ! Successfully deleted from database.')
+            deleted+=1
+        deleted = str(deleted)
+        await k.edit_text(text=f"<b>Successfully deleted {deleted} sample files.</b>")
 
     elif query.data == "reqinfo":
         await query.answer(text=script.REQINFO, show_alert=True)
