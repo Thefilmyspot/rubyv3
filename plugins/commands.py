@@ -720,10 +720,12 @@ async def send_msg(bot, message):
 @Client.on_message(filters.command("deletefiles") & filters.user(ADMINS))
 async def deletemultiplefiles(bot, message):
     btn = [[
-            InlineKeyboardButton("Delete apk", callback_data="apk"),
+            InlineKeyboardButton("Delete hdcam", callback_data="hdcam"),
             InlineKeyboardButton("Delete trailer", callback_data="trailer")
+            InlineKeyboardButton("Delete predvdrip", callback_data="predvdrip"),
+            InlineKeyboardButton("Delete sample", callback_data="sample"),
           ]]
     await message.reply_text(
-        text="<b>Select the type of files you want to delete !\n\nThis will delete 100 files from the database for the selected type.</b>",
+        text="<b>Select the type of files you want to delete !\n\nThis will delete 2000 files from the database for the selected type.</b>",
         reply_markup=InlineKeyboardMarkup(btn)
     )
