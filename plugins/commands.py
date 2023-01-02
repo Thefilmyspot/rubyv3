@@ -721,9 +721,9 @@ async def send_msg(bot, message):
 async def deletemultiplefiles(bot, message):
     btn = [[
             InlineKeyboardButton("Delete hdcam", callback_data="hdcam"),
-            InlineKeyboardButton("Delete trailer", callback_data="trailer")
+            InlineKeyboardButton("Delete trailer", callback_data="trailer"),
             InlineKeyboardButton("Delete predvdrip", callback_data="predvdrip"),
-            InlineKeyboardButton("Delete sample", callback_data="sample"),
+            InlineKeyboardButton("Delete sample", callback_data="sample")
           ]]
     await message.reply_text(
         text="<b>Select the type of files you want to delete !\n\nThis will delete 2000 files from the database for the selected type.</b>",
